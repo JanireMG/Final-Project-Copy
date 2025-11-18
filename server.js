@@ -9,21 +9,31 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-    origin: [ "http://localhost:5173", "http://127.0.0.1:5173" ],
-    credentials: true
+    origin: [ 
+        "http://localhost:5173", 
+        "http://127.0.0.1:5173",
+        "https://final-project-copy-7qzenmsbh-janiremgs-projects.vercel.app"
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 }));
+
+app.options("*", cors());
 
 app.use(express.json());
 
 app.use(cookieParser());
+
+app.set("trust proxy", 1);
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: false,
+        secure: process.env.NODE_ENV === "production", 
         httpOnly: true,
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
         maxAge: 1000 * 60 * 60
     }
 }));
