@@ -11,7 +11,7 @@ export default function NoDetails(){
             <h3>Try another anime</h3>
             <img 
                 className="noDetailImg" 
-                src="static/NoDetailImg/AnyaLupa.jpg"
+                src="/NoDetailImg/AnyaLupa.jpg"
             />
             <Btn className="noDetailBtn"
                 onHomeClick={() => navigate("/")}
