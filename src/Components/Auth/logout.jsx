@@ -4,13 +4,15 @@ import axios from "axios";
 
 import Btn from "../ReutilizableFx/Btn";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function Logout({ setLoggedIn }) {
     const navigate = useNavigate();
 
     const handleLogout = async () => {
         try {
             await axios.post(
-                "https://final-project-copy-vgt5.onrender.com/api/logout",
+                `${API_URL}/api/login`,
                 {},
                 { withCredentials: true }
             );

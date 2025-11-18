@@ -1,9 +1,11 @@
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export const loginUser = async (username, password) => {
   try {
     const response = await axios.post(
-      'https://final-project-copy-vgt5.onrender.com/api/login', 
+      `${API_URL}/api/login`, 
       { username, password },
       {
         headers: { "Content-Type": "application/json" },
