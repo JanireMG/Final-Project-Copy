@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.jsx';
 import Home from './Components/Pages/Home';
-import SearchbarContent from './Components/Pages/searchbarContent';
+import SearchbarContent from './Components/Pages/SearchbarContent';
 import AnimeInfo from './Components/Pages/AnimeInfo';
 
 import './style/main.scss';
