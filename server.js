@@ -280,6 +280,7 @@ app.put("/api/user/:id", async (req, res) => {
     }
 });
 
-app.listen(5000, ()=> {
-    console.log("Server en marcha");
+const PORT = process.env.PORT || 5000; 
+app.listen(PORT, () => {
+    console.log(`Server en marcha en puerto ${PORT}`);
 });
