@@ -12,7 +12,7 @@ export default function Logout({ setLoggedIn }) {
     const handleLogout = async () => {
         try {
             await axios.post(
-                `${API_URL}/api/login`,
+                `${API_URL}/api/logout`,
                 {},
                 { withCredentials: true }
             );
