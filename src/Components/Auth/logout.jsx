@@ -10,7 +10,7 @@ export default function Logout({ setLoggedIn }) {
     const handleLogout = async () => {
         try {
             await axios.post(
-                "http://localhost:5000/api/logout",
+                "https://final-project-copy-vgt5.onrender.com/api/logout",
                 {},
                 { withCredentials: true }
             );
