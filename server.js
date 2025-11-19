@@ -10,15 +10,16 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: "https://final-project-copy.vercel.app", 
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true
-}));
-
-app.options("/api/*", cors({
-    origin: "https://final-project-copy.vercel.app",
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true
+  origin: function(origin, callback){
+    const allowedOrigins = ["https://final-project-copy.vercel.app"];
+    if(!origin || allowedOrigins.indexOf(origin) !== -1){
+      callback(null, true);
+    } else {
+      callback(new Error("CORS not allowed"));
+    }
+  },
+  methods: "GET,POST,PUT,DELETE",
+  credentials: true
 }));
 
 app.use(express.json());
