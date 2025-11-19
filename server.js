@@ -15,7 +15,7 @@ app.use(cors({
     credentials: true
 }));
 
-app.options("*", cors({
+app.options("/api/*", cors({
     origin: "https://final-project-copy.vercel.app",
     methods: "GET,POST,PUT,DELETE",
     credentials: true
