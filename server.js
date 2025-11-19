@@ -9,23 +9,16 @@ dotenv.config();
 
 const app = express();
 
-const allowedOrigins = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "https://final-project-copy-7qzenmsbh-janiremgs-projects.vercel.app"
-];
-
 app.use(cors({
-    origin: function(origin, callback){
-        if(!origin) return callback(null, true);
-        if(allowedOrigins.includes(origin)){
-            return callback(null, true);
-        } else {
-            return callback(new Error("CORS not allowed"));
-        }
-    },
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+    origin: "https://final-project-copy.vercel.app", 
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true
+}));
+
+app.options("*", cors({
+    origin: "https://final-project-copy.vercel.app",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true
 }));
 
 app.use(express.json());
