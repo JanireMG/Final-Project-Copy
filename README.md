@@ -85,11 +85,13 @@ npm install
 ## Configurar archivo .env
 Crea un archivo ``.env`` en la raiz del proyecto añadiendo:
 ```bash
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=tu_contraseña
-DB_NAME=final_project_db
-SESSION_SECRET=contraseña_secreta
+# Back
+DB_HOST=host-bd
+DB_USER=tu-usuario-bd
+DB_PASSWORD=tu-contraseña-bd
+DB_NAME=nombre-bd
+SESSION_SECRET=contraseña-secreta
+DB_PORT=3306
 ```
 ## Iniciar el proyecto
 ```bash

@@ -13,7 +13,7 @@ function App() {
 
     axios
       .get(
-        "http://localhost:5000/api/session", 
+        `${import.meta.env.VITE_API_URL}/api/session`, 
         { withCredentials: true }
       )
       .then(res => {
