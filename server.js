@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({
+app.use("/api", cors({
   origin: (origin, callback) => {
     if (!origin || origin.endsWith(".vercel.app")) {
       callback(null, true);
@@ -21,8 +21,6 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
-
-app.options("/api/*", cors());
 
 app.use(express.json());
 
