@@ -81,7 +81,7 @@ app.post("/api/login", (req,res) => {
     }
 
     const sql= `
-        SELECT * FROM USERS WHERE USERNAME = ?
+        SELECT * FROM users WHERE USERNAME = ?
     `;
     db.query(sql, [username], async (err, results) => {
         if (err) {
@@ -151,7 +151,7 @@ app.post("/api/register", async (req,res)=> {
         const hashedPassword =  await bcrypt.hash(password, 10);
 
         const sql= `
-            INSERT INTO USERS (FIRSTNAME, USERNAME, EMAIL, USER_PASSWORD)
+            INSERT INTO users (FIRSTNAME, USERNAME, EMAIL, USER_PASSWORD)
             VALUES (?, ?, ?, ?)
         `;
 
@@ -234,7 +234,7 @@ app.put("/api/user/:id", async (req, res) => {
 
         values.push(id);
 
-        const sql = `UPDATE USERS SET ${fields.join(", ")} WHERE USER_ID = ?`;
+        const sql = `UPDATE users SET ${fields.join(", ")} WHERE USER_ID = ?`;
 
         db.query(sql, values, (err, result) => {
             if (err) {
