@@ -36,7 +36,7 @@ export default function UserPanel() {
 
         try{
             const res = await axios.put(
-                `http://localhost:5000/api/user/${user.id}`,
+                `${import.meta.env.VITE_API_URL}/api/user/${user.id}`,
                 payload,
                 { withCredentials: true }
             );
