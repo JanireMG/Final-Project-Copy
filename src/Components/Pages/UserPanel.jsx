@@ -13,7 +13,8 @@ export default function UserPanel() {
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
 
-    if (!user) return <FontAwesomeIcon icon="spinner" spin />
+    if (user === null) return <FontAwesomeIcon icon="spinner" spin />; 
+    if (!user) return <p>User not logged in</p>;
 
     const handleUpdate= async (e) => {
         e.preventDefault();
