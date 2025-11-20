@@ -71,18 +71,25 @@ class Login extends Component {
         const result= await registerUser(firstname, username, email, password);
 
         if(result.success) {
-            setLoggedIn(true);
-            setUser(result.user)
+            const loginResult = await loginUser(username, password);
 
-            this.setState({ 
-                errorText: "",
-                username: username
-            });
-            navigate("/");
-        }else {
-            this.setState({ errorText: result.error });    
+            if(loginResult.success) {
+                setLoggedIn(true);
+                setUser(loginResult.user);
+
+                this.setState({ 
+                    errorText: "",
+                    username: loginResult.user.username
+                });
+
+                navigate("/user-panel");
+
+            }else {
+                this.setState({ errorText: result.error });    
+            }
+        } else {
+            this.setState({ errorText: result.error });
         }
-
     }
     
     render() {
