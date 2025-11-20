@@ -169,6 +169,10 @@ http://localhost:5173/
 ├─ DB/
 │ └─ final_project_db.sql
 │
+├─ public/
+│  ├─Background/
+│  └─NoDetailImg/
+│ 
 ├─ src/
 │ ├─ Components/
 │ │   ├─ Auth/
@@ -179,9 +183,7 @@ http://localhost:5173/
 │ ├ style/
 │ ├ App.jsx
 │ └ main.jsx
-│
-├─ static/
-│ └─ NoDetailImg/
+│ 
 │
 ├─ eslint.config.js
 ├─ index.html
@@ -194,7 +196,7 @@ http://localhost:5173/
 ```
 `DB`➔ Scripts SQL para la base de datos.
 `src`➔ Código fuente de React.
-`static`➔ Imágenes.
+`public`➔ Imágenes.
 `server.js`➔ Backend con Express.
 `package.json` Dependencias y scripts npm.
 ```

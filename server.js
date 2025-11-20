@@ -9,17 +9,25 @@ dotenv.config();
 
 const app = express();
 
-app.use("/api", cors({
-  origin: (origin, callback) => {
-    if (!origin || origin.endsWith(".vercel.app")) {
-      callback(null, true);
-    } else {
-      callback(new Error("CORS not allowed"));
-    }
-  },
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "https://final-project-copy-vgt5.onrender.com",
+  "https://final-project-copy.vercel.app"
+];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if(!origin || allowedOrigins.includes(origin)){
+        callback(null, true);
+      }else {
+        callback(new Error("CORS not allowed: " + origin));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 app.use(express.json());
