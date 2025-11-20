@@ -99,7 +99,7 @@ DB_PORT=3306
 npm run dev
 ```
 
-# Uso
+# Uso en local
 ## 1. Abrir la app
 ### Backend
 Poner en marcha el servidor:
