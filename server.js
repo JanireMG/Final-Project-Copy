@@ -43,7 +43,6 @@ app.use(
   })
 );
 
-
 const db = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -69,7 +68,6 @@ app.get("/api/session", (req, res) => {
     res.json({ loggedIn: false });
   }
 });
-
 
 app.post("/api/login", async (req, res) => {
   const { username, password } = req.body;
@@ -103,7 +101,6 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
-
 app.post("/api/register", async (req, res) => {
   const { firstname, username, email, password } = req.body;
   if (!firstname || !username || !email || !password)
@@ -128,7 +125,6 @@ app.post("/api/register", async (req, res) => {
   }
 });
 
-
 app.post("/api/logout", (req, res) => {
   if (req.session.user) {
     req.session.destroy((err) => {
@@ -143,7 +139,6 @@ app.post("/api/logout", (req, res) => {
     res.status(400).json({ success: false, error: "No active session" });
   }
 });
-
 
 app.put("/api/user/:id", async (req, res) => {
   const { id } = req.params;
@@ -188,7 +183,6 @@ app.put("/api/user/:id", async (req, res) => {
     res.status(500).json({ success: false, error: "Internal server error" });
   }
 });
-
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
