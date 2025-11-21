@@ -11,7 +11,7 @@ const app = express();
 
 app.use("/api", cors({
   origin: (origin, callback) => {
-    if (!origin || origin.endsWith(".vercel.app")) {
+    if (!origin || origin.includes("localhost") || origin.endsWith(".vercel.app")) {
       callback(null, true);
     } else {
       callback(new Error("CORS not allowed"));
