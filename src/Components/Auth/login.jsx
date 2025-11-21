@@ -189,7 +189,7 @@ class Login extends Component {
                                         type='password'
                                         name='password'
                                         value={password}
-                                        placeholder='Enter yor password'
+                                        placeholder='Enter your password'
                                         onChange={this.handleChange}
                                     />
                                 </div>

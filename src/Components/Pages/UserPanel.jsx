@@ -64,7 +64,8 @@ export default function UserPanel() {
                 </h1>
             
                 <div className="userPanelConfig">
-                    <h2>Update your info</h2>
+                    <h2>Update your username</h2>
+                    <h3>Enter your new username and your current password</h3>
                     <form onSubmit={handleUpdate}>
                         <div className="userPanelForm">
                             <div>
